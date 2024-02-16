@@ -1,0 +1,174 @@
+<app-navbar />
+<div class="main-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="log-main-box">
+          <div class="head-box">
+            <h4>Register</h4>
+          </div>
+          <div class="log-box">
+            <!-- <form
+              #registerForm="ngForm"
+              (ngSubmit)="registerUser(registerForm)"
+            >
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  class="form-control cus-form"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="userData.email"
+                  required
+                  email
+                />
+                <div
+                  *ngIf="registerForm.controls['email'].errors?.['email']"
+                  class="text-danger"
+                >
+                  Invalid email format
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control cus-form"
+                  id="exampleInputPassword1"
+                  placeholder="Password - 8 characters minimum"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Confirm Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control cus-form"
+                  id="exampleInputPassword1"
+                  placeholder="password"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >I Accept Term & Conditions</label
+                >
+              </div>
+
+              <div class="text-center">
+                <button class="btn cus-btn">Register</button>
+              </div>
+            </form> -->
+            <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control cus-form"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="userData.email"
+                  required
+                  email
+                  #emailInput="ngModel"
+                />
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                  <div *ngIf="emailInput.errors?.['required']">
+                    Email is required
+                  </div>
+                  <div *ngIf="emailInput.errors?.['email']">
+                    Invalid email format
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control cus-form"
+                  id="exampleInputPassword1"
+                  name="password"
+                  [(ngModel)]="userData.password"
+                  required
+                  minlength="8"
+                  #passwordInput="ngModel"
+                />
+                <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+                  <div *ngIf="passwordInput.errors?.['required']">
+                    Password is required
+                  </div>
+                  <div *ngIf="passwordInput.errors?.['minlength']">
+                    Password must be at least 8 characters long
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control cus-form"
+                  id="exampleInputPassword2"
+                  name="confirmPassword"
+                  [(ngModel)]="userData.confirmPassword"
+                  required
+                  #confirmPasswordInput="ngModel"
+                />
+                <div *ngIf="confirmPasswordInput.invalid && (confirmPasswordInput.dirty || confirmPasswordInput.touched)" class="text-danger">
+                  <div *ngIf="confirmPasswordInput.errors?.['required']">
+                    Confirm Password is required
+                  </div>
+
+
+                </div>
+                <div *ngIf="userData.password !== userData.confirmPassword && confirmPasswordInput.touched" class="text-danger">
+                  Passwords do not match
+                </div>
+
+              </div>
+
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                  required
+                  [(ngModel)]="userData.acceptTerms"
+                  name="acceptTerms"
+                  #acceptTermsInput="ngModel"
+                />
+                <label class="form-check-label" for="exampleCheck1">I Accept Term & Conditions</label>
+                <div *ngIf="acceptTermsInput.invalid && (acceptTermsInput.dirty || acceptTermsInput.touched)" class="text-danger">
+                  <div *ngIf="acceptTermsInput.errors?.['required']">
+                    You must accept the terms and conditions
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button class="btn cus-btn">Register</button>
+              </div>
+            </form>
+
+          </div>
+          <div class="row py-3">
+            <div class="col-12 text-center">
+              <span> already have an account ? <a (click)="loginRedirect()"> Login Here</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

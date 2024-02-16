@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "password2"
+    },
+    {
+      "id": "edbe",
+      "email": "test@gmail.com",
+      "password": "Test@123",
+      "confirmPassword": "Test@123"
+    },
+    {
+      "id": "4e2b",
+      "email": "test2@gmail.com",
+      "password": "Test@123",
+      "confirmPassword": "Test@12"
+    },
+    {
+      "id": "111b",
+      "email": "test2@gmail.com",
+      "password": "Test@123",
+      "confirmPassword": "Test@123"
+    },
+    {
+      "id": "30e8",
+      "email": "test3@gmail.com",
+      "password": "Test@123",
+      "confirmPassword": "Test@123",
+      "acceptTerms": true
+    },
+    {
+      "id": "5da3",
+      "email": "abdulkarim@gmail.com",
+      "password": "Test@123",
+      "confirmPassword": "Test@123",
+      "acceptTerms": true
+    }
+  ],
+  "products": [
+    {
+      "img": "https://images.pexels.com/photos/14773449/pexels-photo-14773449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Running Shoes",
+      "description": "High-performance running shoes with cushioned soles.",
+      "price": "99.99"
+    },
+    {
+      "img": "https://images.pexels.com/photos/9993176/pexels-photo-9993176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Sneakers",
+      "description": "Stylish and comfortable sneakers for everyday wear.",
+      "price": "79.99"
+    },
+    {
+      "img": "https://images.pexels.com/photos/7327311/pexels-photo-7327311.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "name": "Basketball Shoes",
+      "description": "Durable basketball shoes with excellent ankle support.",
+      "price": "129.99"
+    },
+    {
+      "img": "https://images.pexels.com/photos/6050911/pexels-photo-6050911.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "name": "Dress Shoes",
+      "description": "Classic dress shoes made from premium leather.",
+      "price": "149.99"
+    },
+    {
+      "img": "https://images.pexels.com/photos/4252970/pexels-photo-4252970.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "name": "Hiking Boots",
+      "description": "Sturdy hiking boots designed for rugged terrain.",
+      "price": "109.99"
+    }
+  ]
+}
