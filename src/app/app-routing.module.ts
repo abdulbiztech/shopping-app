@@ -6,17 +6,20 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CartProductComponent } from './components/cart-product/cart-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products', component: ProductListingComponent },
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  { path: '**', redirectTo: '/products' }, // Redirect any other route to products
+
+
+  { path: '**', redirectTo: '/products' },
 ];
 
 @NgModule({

@@ -33,9 +33,9 @@
     margin-left: 10px;
 }
 .svg-icon {
-    transition: fill 0.3s; /* Add a transition effect */
+    transition: fill 0.3s;
   }
 
 .svg-icon:hover {
-    fill: #f89e52; /* Change the fill color on hover */
+    fill: #f89e52;
   }

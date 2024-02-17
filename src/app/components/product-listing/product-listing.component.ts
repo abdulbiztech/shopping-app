@@ -13,13 +13,13 @@ export class ProductListingComponent implements OnInit {
   constructor(private productService: ProductService,private router:Router) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products.slice(0, 10); // Assuming you want to display only the first 10 products
+    this.productService.getProducts().subscribe((data: any[]) => {
+      this.products = data;
     });
   }
 
-  prdocutDetail(){
-    this.router.navigate(['/product-details']);
+  prdocutDetail(productId:any){
+    this.router.navigate(['/product-details',productId]);
   }
 
 }

@@ -12,6 +12,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TruncatePipe } from './services/truncate.pipe';
+import { CartProductComponent } from './components/cart-product/cart-product.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,10 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
+    TruncatePipe,
+    CartProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ,ToastrModule.forRoot(), BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

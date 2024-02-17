@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/services/user.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,11 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   loginUser() {
-    // Checking if the form is valid
     if (!this.email || !this.password) {
       console.error('Email and password are required.');
       return;
@@ -30,20 +31,28 @@ export class LoginComponent {
         // Checking if password matches
         if (user.password === this.password) {
           console.log('Login successful.');
-
-          // Save user email and password in local storage
-          localStorage.setItem('userEmail', this.email);
-          localStorage.setItem('userPassword', this.password);
+          this.toastr.success('Login successful!');
+          const userData = {
+            userEmail: this.email,
+            userPassword: this.password
+          };
+          localStorage.setItem('userData', JSON.stringify(userData));
 
           this.router.navigate(['/products']);
         } else {
           console.error('Invalid password.');
+        this.toastr.error('Registration failed!');
+
         }
       } else {
         console.error('User not found.');
+        this.toastr.error('User not found!');
+
       }
     }, error => {
       console.error('Error authenticating user:', error);
+      this.toastr.error('Error authenticating user!');
+
     });
   }
 

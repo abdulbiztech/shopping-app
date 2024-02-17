@@ -8,67 +8,7 @@
             <h4>Register</h4>
           </div>
           <div class="log-box">
-            <!-- <form
-              #registerForm="ngForm"
-              (ngSubmit)="registerUser(registerForm)"
-            >
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email Address</label
-                >
-                <input
-                  type="email"
-                  class="form-control cus-form"
-                  id="email"
-                  name="email"
-                  [(ngModel)]="userData.email"
-                  required
-                  email
-                />
-                <div
-                  *ngIf="registerForm.controls['email'].errors?.['email']"
-                  class="text-danger"
-                >
-                  Invalid email format
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control cus-form"
-                  id="exampleInputPassword1"
-                  placeholder="Password - 8 characters minimum"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Confirm Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control cus-form"
-                  id="exampleInputPassword1"
-                  placeholder="password"
-                />
-              </div>
-              <div class="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label class="form-check-label" for="exampleCheck1"
-                  >I Accept Term & Conditions</label
-                >
-              </div>
 
-              <div class="text-center">
-                <button class="btn cus-btn">Register</button>
-              </div>
-            </form> -->
             <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email Address</label>

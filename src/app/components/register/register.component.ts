@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/services/user.interface';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService,private router:Router,private toastr: ToastrService) { }
 
   userData: User = {
     name: '',
@@ -23,9 +23,7 @@ export class RegisterComponent {
   registerUser(registerForm: any) {
     if (registerForm.valid) {
       if (registerForm.value.password !== registerForm.value.confirmPassword) {
-        // Password and confirmPassword don't match
         console.error('Passwords do not match');
-        // Show error message or handle the error as needed
         return;
       }
 
@@ -40,14 +38,14 @@ export class RegisterComponent {
 
       this.authService.register(userData).subscribe(response => {
         console.log('Registration successful:', response);
+        this.toastr.success('Registration successful!');
         this.router.navigate(['/login']);
-        // Handle successful registration, e.g., redirect to login page
       }, error => {
         console.error('Registration failed:', error);
-        // Handle registration failure, e.g., display error message
+        this.toastr.error('Registration failed!');
+
       });
     } else {
-      // Form validation failed, handle errors or display validation messages
     }
 }
 loginRedirect(){
