@@ -3,6 +3,9 @@ import { ToastrService } from 'ngx-toastr';
 import { CartItem } from 'src/app/services/cart.interface';
 import { CartTotals } from 'src/app/services/cartTotal.interface';
 import { ProductService } from 'src/app/services/product.service';
+import { Output, EventEmitter } from '@angular/core';
+declare var Razorpay: any;
+
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,10 +13,19 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
+  razorpay: any;
   images: any[] = [];
   products: any[] = [];
   totalPricee:any
-  constructor(private productService: ProductService,private toastr: ToastrService) {}
+  @Output() cartItemRemoved: EventEmitter<void> = new EventEmitter<void>();
+  constructor(private productService: ProductService,private toastr: ToastrService) {
+    this.razorpay = new Razorpay({
+      key: 'rzp_test_xLCW1I4G9opoDk',
+      currency: 'INR',
+      image: 'https://images.unsplash.com/photo-1606663889134-b1dedb5ed8b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNhcnRvb258ZW58MHx8MHx8fDA%3D',
+      handler: this.paymentHandler.bind(this)
+    });
+  }
 
   ngOnInit(): void {
     this.fetchCartData();
@@ -48,6 +60,7 @@ export class ShoppingCartComponent {
         this.images = this.images.filter(cartItem => cartItem.id !== productId);
         this.toastr.info('Item removed successfully!');
         this.calculateCartTotals();
+        this.cartItemRemoved.emit();
       },
       error => {
         console.error('Error removing item from cart:', error);
@@ -58,13 +71,26 @@ export class ShoppingCartComponent {
 
   calculateCartTotals(): void {
     const subtotal = this.images.reduce((acc, item) => acc + parseFloat(item.price), 0);
-    const tax = (subtotal * 0.1); // Assuming tax rate is 10%
-    const shipping = 10; // Example shipping cost
+    const tax = (subtotal * 0.1);
+    const shipping = 10;
     const total =  (subtotal + tax + shipping).toFixed(0);
     console.log("total", total);
 
     this.cartTotals = { subtotal, tax, shipping, total };
   }
 
+  initiatePayment(amount: number): void {
+    const options = {
+      amount: amount * 100, // Amount should be in paisa
+      currency: 'INR',
+      receipt: 'receipt_order_123'
+    };
 
+    this.razorpay.open(options);
+  }
+
+  paymentHandler(response: any): void {
+    console.log(response);
+    // Handle the response from Razorpay
+  }
 }

@@ -30,7 +30,9 @@ import { CartProductComponent } from './components/cart-product/cart-product.com
     TruncatePipe,
     CartProductComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ,ToastrModule.forRoot(), BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ,ToastrModule.forRoot({
+    timeOut:1500,
+  }), BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

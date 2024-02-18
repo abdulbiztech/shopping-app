@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map, catchError } from 'rxjs';
-import {  mergeMap } from 'rxjs/operators';
+import {  mergeMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000'; // Assuming your API is hosted here
-
+  private apiUrl = 'http://localhost:3000'; //my json api
+  cartItemRemoved: EventEmitter<void> = new EventEmitter<void>();
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
@@ -51,6 +51,9 @@ export class ProductService {
 
   removeFromCart(cartItemId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/cart/${cartItemId}`).pipe(
+      tap(() => {
+        this.cartItemRemoved.emit();
+      }),
       catchError((error) => {
         console.error('Error removing item from cart:', error);
         return [];

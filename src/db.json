@@ -26,6 +26,7 @@
       "img": "https://images.pexels.com/photos/14773449/pexels-photo-14773449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "name": "Running Shoes",
       "description": "High-performance running shoes with cushioned soles.",
+      "quantity": "1",
       "price": "99.99",
       "id": "7827"
     },
@@ -33,48 +34,64 @@
       "img": "https://images.pexels.com/photos/9993176/pexels-photo-9993176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "name": "Sneakers",
       "description": "Stylish and comfortable sneakers for everyday wear.",
-      "price": "79.99",
+      "quantity": "1",
+      "price": "99.99",
       "id": "04fb"
     },
     {
       "img": "https://images.pexels.com/photos/7327311/pexels-photo-7327311.jpeg?auto=compress&cs=tinysrgb&w=600",
       "name": "Basketball Shoes",
       "description": "Durable basketball shoes with excellent ankle support.",
-      "price": "129.99",
+      "quantity": "1",
+      "price": "139.99",
       "id": "7b47"
     },
     {
       "img": "https://images.pexels.com/photos/6050911/pexels-photo-6050911.jpeg?auto=compress&cs=tinysrgb&w=600",
       "name": "Dress Shoes",
       "description": "Classic dress shoes made from premium leather.",
-      "price": "149.99",
+      "quantity": "1",
+      "price": "159.99",
       "id": "882f"
     },
     {
-      "img": "https://images.pexels.com/photos/4252970/pexels-photo-4252970.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "Hiking Boots",
       "description": "Sturdy hiking boots designed for rugged terrain.",
+      "quantity": "1",
       "price": "109.99",
       "id": "ac42"
     },
     {
-      "img": "https://images.pexels.com/photos/4252970/pexels-photo-4252970.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "name": "Hiking Boots",
       "description": "Sturdy hiking boots designed for rugged terrain.",
+      "quantity": "1",
       "price": "109.99",
+      "id": "ac42"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "name": "Hiking Boots",
+      "description": "Sturdy hiking boots designed for rugged terrain.",
+      "quantity": "1",
+      "price": "129.99",
+      "id": "ac42"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "name": "Hiking Boots",
+      "description": "Sturdy hiking boots designed for rugged terrain.",
+      "quantity": "1",
+      "price": "129.99",
       "id": "ac42"
     }
   ],
   "cart": [
     {
-      "id": "2576",
+      "id": "3f26",
       "userId": "edbe",
-      "productId": "882f"
-    },
-    {
-      "id": "b439",
-      "userId": "edbe",
-      "productId": "04fb"
+      "productId": "7827"
     }
   ]
 }

@@ -1,3 +1,4 @@
+
 <app-navbar></app-navbar>
 <section class="py-5">
   <div class="container">
@@ -14,6 +15,7 @@
                 <img width="60" height="60" class="rounded-2 mx-2" [src]="product?.img" />
             </a>
         </ng-container>
+
         </div>
       </aside>
       <main class="col-lg-6">
@@ -30,16 +32,17 @@
             <div class="col-md-4 col-6">
               <label class="mb-2 d-block">Quantity</label>
               <div class="input-group mb-3" style="width: 170px;">
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                  <i class="fas fa-minus"></i>
+                <button (click)="decreaseQuantity()" class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                  <i class="bi bi-dash"></i>
                 </button>
-                <input type="text" class="form-control text-center border border-secondary" placeholder="1" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                  <i class="fas fa-plus"></i>
+                <input type="text" class="form-control text-center border border-secondary" [value]="quantity" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                <button (click)="increaseQuantity()" class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  <i class="bi bi-plus"></i>
                 </button>
               </div>
             </div>
           </div>
+
           <!-- Buttons -->
           <a class="btn btn-primary shadow-0 mx-1" (click)="addToCart(currentUser.id, product.id)">
             <i class="me-1 fa fa-shopping-basket"></i> Add to cart

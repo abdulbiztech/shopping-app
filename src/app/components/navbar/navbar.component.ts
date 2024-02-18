@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  cartItemCount: any   = 0;
+  cartItemCount: any;
   isLoggedIn: boolean = false;
 
   constructor(private productService: ProductService, private router: Router, private http: HttpClient) {
@@ -21,6 +21,15 @@ export class NavbarComponent {
 
   ngOnInit(): void {
     this.fetchCartItemCount();
+    this.subscribeToCartItemRemoved();
+
+
+  }
+
+  private subscribeToCartItemRemoved(): void {
+    this.productService.cartItemRemoved.subscribe(() => {
+      this.fetchCartItemCount();
+    });
   }
 
   loginRedirect(): void {
@@ -34,17 +43,20 @@ export class NavbarComponent {
   cartRedirect(): void {
     this.router.navigate(['/cart']);
   }
-
   fetchCartItemCount(): void {
+    if (!this.isLoggedIn) {
+      this.cartItemCount = 0;
+    }
+
     this.productService.getCartData().subscribe(
       count => {
         this.cartItemCount = count.length;
-        console.log("this.cartItemCount.length",this.cartItemCount);
-
+        console.log("this.cartItemCount.length", this.cartItemCount);
       },
       error => {
         console.error('Error fetching cart items count:', error);
       }
     );
   }
+
 }

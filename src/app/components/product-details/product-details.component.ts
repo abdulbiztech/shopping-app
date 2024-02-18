@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent {
   product: any;
+  quantity: number = 1;
   constructor(private router: ActivatedRoute,private route: Router , private productService: ProductService,private http: HttpClient,private toastr: ToastrService) {}
   ngOnInit(): void {
     const productId = this.router.snapshot.paramMap.get('id');
@@ -19,6 +20,7 @@ export class ProductDetailsComponent {
       });
     }
   }
+
   currentUser = {
     id: 'edbe',
   };
@@ -27,8 +29,19 @@ export class ProductDetailsComponent {
     id: '7b47',
   };
 
+  decreaseQuantity(): void {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  increaseQuantity(): void {
+    this.quantity++;
+  }
+
+
   addToCart(userId: string, productId: string): void {
-    const cartItem = { userId, productId };
+    const cartItem = { userId, productId ,quantity: this.quantity };
 
     this.http.post<any>('http://localhost:3000/cart', cartItem).subscribe(
       response => {

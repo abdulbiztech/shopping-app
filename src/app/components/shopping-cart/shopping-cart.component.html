@@ -11,6 +11,7 @@
                     <th>Product Name</th>
                     <th>Product Image</th>
                     <th>Description</th>
+                    <th>Quantity</th>
                     <th>Price</th>
                     <th>Action</th>
                   </tr>
@@ -27,6 +28,8 @@
                       </div>
                     </td>
                     <td>{{ item.description }}</td>
+                    <td>{{ item.quantity }}</td>
+
                     <td class="price-c">₹{{ item.price }}</td>
                     <td>
                         <button class="btn btn-danger" (click)="removeFromCart(item.id)">
@@ -41,7 +44,7 @@
                         </button>
                       </td>
                     <td>
-                      <button class="btn btn-success" >
+                      <button (click)="initiatePayment(cartTotals.total)" class="btn btn-success" >
                         Checkout
                       </button>
                     </td>
