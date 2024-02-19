@@ -113,21 +113,14 @@
   ],
   "cart": [
     {
-      "id": "3f26",
+      "id": "03a6",
       "userId": "edbe",
-      "productId": "7827"
-    },
-    {
-      "id": "da76",
-      "userId": "edbe",
-      "productId": "882f",
-      "quantity": 1
-    },
-    {
-      "id": "6c8f",
-      "userId": "edbe",
-      "productId": "ac42",
-      "quantity": 1
+      "productId": "04fb",
+      "quantity": 2,
+      "name": "Sneakers",
+      "description": "Stylish and comfortable sneakers for everyday wear.",
+      "price": "70",
+      "image": "https://images.pexels.com/photos/9993176/pexels-photo-9993176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   ]
 }

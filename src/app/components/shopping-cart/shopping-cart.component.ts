@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { CartItem } from 'src/app/services/cart.interface';
 import { CartTotals } from 'src/app/services/cartTotal.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 declare var Razorpay: any;
-
 
 @Component({
   selector: 'app-shopping-cart',
@@ -18,7 +17,7 @@ export class ShoppingCartComponent {
   products: any[] = [];
   totalPricee:any
   @Output() cartItemRemoved: EventEmitter<void> = new EventEmitter<void>();
-  constructor(private productService: ProductService,private toastr: ToastrService) {
+  constructor(private productService: ProductService,private toastr: ToastrService,private router:Router) {
     this.razorpay = new Razorpay({
       key: 'rzp_test_xLCW1I4G9opoDk',
       currency: 'INR',
@@ -31,16 +30,15 @@ export class ShoppingCartComponent {
     this.fetchCartData();
   }
 
-
   findProductById(productId: string): any {
     return this.products.find(product => product.id === productId);
   }
 
-
   fetchCartData(): void {
-    this.productService.fetchCartDataWithProductDetails().subscribe(
+    this.productService.getCartData().subscribe(
       (response: any[]) => {
         this.images = response;
+        console.log("cart data", this.images);
         let totalPrice = 0;
         for (const product of response) {
           totalPrice += parseFloat(product.price);
@@ -54,6 +52,7 @@ export class ShoppingCartComponent {
       }
     );
   }
+
   removeFromCart(productId: string): void {
     this.productService.removeFromCart(productId).subscribe(
       () => {
@@ -70,27 +69,61 @@ export class ShoppingCartComponent {
   cartTotals: CartTotals = { subtotal: 0, tax: 0, shipping: 0, total: 0 };
 
   calculateCartTotals(): void {
-    const subtotal = this.images.reduce((acc, item) => acc + parseFloat(item.price), 0);
-    const tax = (subtotal * 0.1);
+    let subtotal = 0;
+    let totalQuantity = 0;
+    for (const item of this.images) {
+      subtotal += parseFloat(item.price) * item.quantity;
+      totalQuantity += item.quantity;
+    }
+    const tax = subtotal * 0.1;
     const shipping = 10;
-    const total =  (subtotal + tax + shipping).toFixed(0);
-    console.log("total", total);
-
+    const total = (subtotal + tax + shipping).toFixed(0);
     this.cartTotals = { subtotal, tax, shipping, total };
   }
+  calculateTotalAmount(): number {
+    let totalAmount = 0;
 
-  initiatePayment(amount: number): void {
+    // Iterate through the items in the cart and calculate the total amount
+    this.images.forEach(item => {
+      totalAmount += parseFloat(item.price) * item.quantity;
+    });
+
+    return totalAmount;
+  }
+
+  initiatePayment(amount:any): void {
+    // Calculate the total amount of the items in the cart
+    const totalAmount = this.calculateTotalAmount() * 100; // Convert to paisa
+
+    // Prepare options for Razorpay
     const options = {
-      amount: amount * 100, // Amount should be in paisa
+      amount: totalAmount, // Amount should be in paisa
       currency: 'INR',
       receipt: 'receipt_order_123'
     };
 
+    // Open the Razorpay payment popup
     this.razorpay.open(options);
   }
 
+
   paymentHandler(response: any): void {
-    console.log(response);
-    // Handle the response from Razorpay
+    if (response && response.razorpay_payment_id) {
+      this.toastr.success('Order placed successfully!');
+      this.router.navigate(['/thankyou'])
+    } else {
+      this.toastr.error('Payment failed or cancelled.');
+    }
   }
+  // clearCart(): void {
+  //   this.productService.clearCart().subscribe(
+  //     () => {
+  //       // Cart cleared successfully
+  //     },
+  //     error => {
+  //       console.error('Error clearing cart:', error);
+  //     }
+  //   );
+  // }
+
 }

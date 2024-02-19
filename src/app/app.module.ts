@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TruncatePipe } from './services/truncate.pipe';
 import { CartProductComponent } from './components/cart-product/cart-product.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CartProductComponent } from './components/cart-product/cart-product.com
     RegisterComponent,
     TruncatePipe,
     CartProductComponent,
+    ThankYouComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ,ToastrModule.forRoot({
     timeOut:1500,

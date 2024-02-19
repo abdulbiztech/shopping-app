@@ -49,6 +49,10 @@ export class ProductService {
     );
   }
 
+  updateCartData(cartItems: any[]): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/cart`, cartItems);
+  }
+
   removeFromCart(cartItemId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/cart/${cartItemId}`).pipe(
       tap(() => {
@@ -60,4 +64,7 @@ export class ProductService {
       })
     );
   }
+  // clearCart(): Observable<any> {
+  //   return this.http.delete<any>(`/api/cart`);
+  // }
 }
