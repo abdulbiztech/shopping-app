@@ -27,7 +27,7 @@
       "name": "Running Shoes",
       "description": "High-performance running shoes with cushioned soles.",
       "quantity": "1",
-      "price": "99.99",
+      "price": "250",
       "id": "7827"
     },
     {
@@ -35,7 +35,7 @@
       "name": "Sneakers",
       "description": "Stylish and comfortable sneakers for everyday wear.",
       "quantity": "1",
-      "price": "99.99",
+      "price": "70",
       "id": "04fb"
     },
     {
@@ -43,7 +43,7 @@
       "name": "Basketball Shoes",
       "description": "Durable basketball shoes with excellent ankle support.",
       "quantity": "1",
-      "price": "139.99",
+      "price": "300",
       "id": "7b47"
     },
     {
@@ -51,7 +51,7 @@
       "name": "Dress Shoes",
       "description": "Classic dress shoes made from premium leather.",
       "quantity": "1",
-      "price": "159.99",
+      "price": "350",
       "id": "882f"
     },
     {
@@ -59,7 +59,7 @@
       "name": "Hiking Boots",
       "description": "Sturdy hiking boots designed for rugged terrain.",
       "quantity": "1",
-      "price": "109.99",
+      "price": "40",
       "id": "ac42"
     },
     {
@@ -67,24 +67,48 @@
       "name": "Hiking Boots",
       "description": "Sturdy hiking boots designed for rugged terrain.",
       "quantity": "1",
-      "price": "109.99",
-      "id": "ac42"
+      "price": "110",
+      "id": "2c13"
     },
     {
       "img": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "name": "Hiking Boots",
-      "description": "Sturdy hiking boots designed for rugged terrain.",
+      "name": "Lightweight Hiking Boots",
+      "description": "Lightweight and durable hiking boots for long hikes.",
       "quantity": "1",
-      "price": "129.99",
-      "id": "ac42"
+      "price": "50",
+      "id": "f789"
     },
     {
       "img": "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "name": "Hiking Boots",
-      "description": "Sturdy hiking boots designed for rugged terrain.",
+      "name": "Trekking Boots",
+      "description": "Sturdy trekking boots designed for rugged terrain.",
       "quantity": "1",
-      "price": "129.99",
-      "id": "ac42"
+      "price": "80",
+      "id": "c245"
+    },
+    {
+      "img": "https://images.pexels.com/photos/1124466/pexels-photo-1124466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "name": "Sports Shoes",
+      "description": "Lightweight sports shoes for various activities.",
+      "quantity": "1",
+      "price": "200",
+      "id": "f093"
+    },
+    {
+      "img": "https://images.pexels.com/photos/12306282/pexels-photo-12306282.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "name": "Trail Running Shoes",
+      "description": "Trail running shoes designed for off-road adventures.",
+      "quantity": "1",
+      "price": "140",
+      "id": "9abf"
+    },
+    {
+      "img": "https://images.pexels.com/photos/274385/pexels-photo-274385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "name": "Running Sneakers",
+      "description": "Lightweight running sneakers for speed and agility.",
+      "quantity": "1",
+      "price": "130",
+      "id": "16da"
     }
   ],
   "cart": [
@@ -92,6 +116,18 @@
       "id": "3f26",
       "userId": "edbe",
       "productId": "7827"
+    },
+    {
+      "id": "da76",
+      "userId": "edbe",
+      "productId": "882f",
+      "quantity": 1
+    },
+    {
+      "id": "6c8f",
+      "userId": "edbe",
+      "productId": "ac42",
+      "quantity": 1
     }
   ]
 }

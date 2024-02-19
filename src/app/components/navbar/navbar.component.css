@@ -39,3 +39,6 @@
 .svg-icon:hover {
     fill: #f89e52;
   }
+.navbar-toggler-icon{
+  background-color: #fff;
+}

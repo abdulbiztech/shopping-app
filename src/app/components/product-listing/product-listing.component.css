@@ -495,10 +495,10 @@ select option :hover {
   outline: none;
 }
 
-.box {
+/* .box {
   position: relative;
   top: 0;
-}
+} */
 
 .img-content2 {
   position: absolute;
@@ -635,4 +635,110 @@ select option :hover {
 .content2:hover .img-content2 {
   opacity: 1;
   top: 50%;
+}
+.filter-box {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-box .input-group {
+  margin-bottom: 20px;
+}
+.filter-box .mt-3 {
+  margin-top: 20px;
+}
+
+
+.filter-box .form-control {
+  border-radius: 20px;
+}
+
+.filter-box .btn-outline-secondary {
+  border-radius: 20px;
+}
+
+.filter-box .btn-primary {
+  border-radius: 20px;
+}
+
+.filter-box .me-2 {
+  margin-right: 10px;
+}
+.box-content {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffffe9;
+  width: 700px;
+}
+
+.searchbx {
+  width: 100%;
+  padding: 5px 20px;
+  border: 0;
+}
+
+.cus-btns {
+  padding: 3px 5px;
+  background-color: #000000;
+  /* background-image: linear-gradient(62deg, #f2a424 0%, #f6b918 50%, #e5a668 100%); */
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+  .box-content {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffffe9;
+      width: 300px;
+  }
+
+  .cus-btns {
+      padding: 3px 5px;
+      background-color: #ffb200;
+      background-image: linear-gradient(62deg, #f2a424 0%, #f6b918 50%, #e5a668 100%);
+      color: #fff !important;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+  }
+
+  div#navbarSupportedContent {
+      text-align: center;
+  }
+
+  .btn-box {
+      justify-content: center;
+  }
+
+  .filter-box {
+      width: 100%;
+  }
+
+  .list {
+      text-align: center;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 780px) {
+
+  .footerup {
+      color: #adadad;
+      text-decoration: none;
+      text-align: center !important;
+  }
+
+
+
 }
