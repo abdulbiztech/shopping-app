@@ -9,6 +9,7 @@ import {  mergeMap, tap } from 'rxjs/operators';
 export class ProductService {
   private apiUrl = 'http://localhost:3000'; //my json api
   cartItemRemoved: EventEmitter<void> = new EventEmitter<void>();
+
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
@@ -64,7 +65,15 @@ export class ProductService {
       })
     );
   }
-  // clearCart(): Observable<any> {
-  //   return this.http.delete<any>(`/api/cart`);
+  clearCart(): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/cart`).pipe(
+      tap(() => {
+        this.cartItemRemoved.emit();
+      })
+    );
+  }
+
+  // getAllPayments(): Observable<any[]> {
+  //   return this.http.get<any[]>(`${this.apiUrl}/payments`);
   // }
 }
