@@ -113,16 +113,6 @@
   ],
   "cart": [
     {
-      "id": "03a6",
-      "userId": "edbe",
-      "productId": "04fb",
-      "quantity": 2,
-      "name": "Sneakers",
-      "description": "Stylish and comfortable sneakers for everyday wear.",
-      "price": "70",
-      "image": "https://images.pexels.com/photos/9993176/pexels-photo-9993176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
       "id": "9d43",
       "userId": "edbe",
       "productId": "7b47",

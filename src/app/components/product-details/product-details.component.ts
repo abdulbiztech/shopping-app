@@ -34,8 +34,6 @@ export class ProductDetailsComponent {
     if (productId) {
       this.productService.getProductById(productId).subscribe((data: any) => {
         this.product = data;
-        console.log("this.product ",this.product );
-
       });
     }
   }
@@ -49,54 +47,26 @@ export class ProductDetailsComponent {
     this.quantity++;
   }
 
-  // addToCart(userId: string, productId: string): void {
-  //   // Check if the product is already in the cart
-  //   this.productService.getCartData().subscribe((cartItems: any[]) => {
-  //     const existingCartItem = cartItems.find(item => item.userId === userId && item.productId === productId);
-  //     if (existingCartItem) {
-  //       // If the item already exists in the cart, update its quantity
-  //       existingCartItem.quantity += this.quantity;
-  //       this.toastr.success('Item quantity updated in cart!');
-  //     } else {
-  //       const cartItem = { userId, productId, quantity: this.quantity };
-  //       this.http.post<any>('http://localhost:3000/cart', cartItem).subscribe(
-  //         response => {
-  //           console.log('Item added to cart:', response);
-  //           this.toastr.success('Item added to cart!');
-  //           this.route.navigate(['/cart']);
-  //         },
-  //         error => {
-  //           console.error('Error adding item to cart:', error);
-  //         }
-  //       );
-  //     }
-  //   });
-  // }
-
   addToCart(userId: string, productId: string): void {
-    // Fetch product details from ProductService
     this.productService.getProductById(productId).subscribe((productDetails: any) => {
-      // Check if the product is already in the cart
       this.productService.getCartData().subscribe((cartItems: any[]) => {
         const existingCartItem = cartItems.find(item => item.userId === userId && item.productId === productId);
         if (existingCartItem) {
-          // If the item already exists in the cart, update its quantity
+
           existingCartItem.quantity += this.quantity;
           this.toastr.success('Item quantity updated in cart!');
         } else {
-          // If the item doesn't exist in the cart, add it
           const cartItem = {
             userId,
             productId,
             quantity: this.quantity,
-            name: productDetails.name, // Add product name
-            description: productDetails.description, // Add product description
-            price: productDetails.price, // Add product price
-            image: productDetails.img // Add product image
+            name: productDetails.name,
+            description: productDetails.description,
+            price: productDetails.price,
+            image: productDetails.img
           };
           this.http.post<any>('http://localhost:3000/cart', cartItem).subscribe(
             response => {
-              console.log('Item added to cart:', response);
               this.toastr.success('Item added to cart!');
               this.route.navigate(['/cart']);
             },

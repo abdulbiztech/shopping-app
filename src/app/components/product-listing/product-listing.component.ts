@@ -25,27 +25,17 @@ export class ProductListingComponent implements OnInit {
     this.router.navigate(['/product-details',productId]);
   }
   filterProducts() {
-    const searchTerm = this.searchTerm.trim().toLowerCase(); // Trim and convert search term to lowercase
-    // const isNumericSearchTerm = this.isNumeric(searchTerm);
-
+    const searchTerm = this.searchTerm.trim().toLowerCase();
     this.filteredProducts = [];
-
     if (searchTerm === '') {
-      // If search term is empty, display all products
       this.filteredProducts = this.products;
       this.filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-
       this.filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-
-
   }
   }
-
-
-  sortProductsByPriceAsc() { //price (low to high)
+  sortProductsByPriceAsc() {
     this.filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-  }
-
+  } //price (low to high)
 
   sortProductsByPriceDesc() {//price (high to low)
     this.filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));

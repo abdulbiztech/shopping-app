@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -15,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TruncatePipe } from './services/truncate.pipe';
-import { CartProductComponent } from './components/cart-product/cart-product.component';
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 @NgModule({
@@ -24,12 +22,10 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
     ProductListingComponent,
     ProductDetailsComponent,
     ShoppingCartComponent,
-    CheckoutComponent,
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
     TruncatePipe,
-    CartProductComponent,
     ThankYouComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule,FormsModule ,ToastrModule.forRoot({

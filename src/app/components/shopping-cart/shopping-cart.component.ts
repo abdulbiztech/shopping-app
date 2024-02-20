@@ -38,7 +38,6 @@ export class ShoppingCartComponent {
 
   ngOnInit(): void {
     this.fetchCartData();
-    // this.clearCart()
   }
 
   findProductById(productId: string): any {
@@ -49,7 +48,6 @@ export class ShoppingCartComponent {
     this.productService.getCartData().subscribe(
       (response: any[]) => {
         this.images = response;
-        // console.log("cart data", this.images);
 
         let totalPrice = 0;
         for (const product of response) {
@@ -57,7 +55,6 @@ export class ShoppingCartComponent {
           this.productId = product.productId;
         }
         this.totalPricee = totalPrice.toFixed(2);
-        // console.log("this.totalPricee", this.totalPricee);
         this.calculateCartTotals();
       },
       (error) => {
@@ -94,7 +91,6 @@ export class ShoppingCartComponent {
     const shipping = 10;
     const total = (subtotal + tax + shipping).toFixed(0);
     this.finalpirce = total;
-    // console.log("finalpirce", this.finalpirce);
 
     this.cartTotals = { subtotal, tax, shipping, total };
   }
@@ -129,10 +125,6 @@ export class ShoppingCartComponent {
         this.paymentId = response.razorpay_payment_id;
         this.orderId = response.razorpay_order_id;
         this.signature = response.razorpay_signature;
-
-        //   this.productService.clearCart().subscribe(() => {
-        //     console.log('Cart cleared successfully!');
-        //   });
       },
     };
 
