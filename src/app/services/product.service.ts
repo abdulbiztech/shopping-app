@@ -7,7 +7,7 @@ import {  mergeMap, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000'; //my json api
+  private apiUrl = 'http://localhost:3000';
   cartItemRemoved: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private http: HttpClient) {}

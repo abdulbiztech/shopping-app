@@ -11,12 +11,9 @@ export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
   private loggedIn = false;
   constructor(private http: HttpClient) { }
-
   isLoggedIn(): boolean {
     return this.loggedIn;
   }
-
-
   register(user: User): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}`, user);
   }
